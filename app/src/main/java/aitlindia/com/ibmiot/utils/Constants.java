@@ -20,7 +20,7 @@ package aitlindia.com.ibmiot.utils;
  */
 public class Constants {
 
-    public final static String APP_ID = "com.ibm.iot.android.iotstarter";
+    public final static String APP_ID = "aitlindia.com.ibmiot";
     public final static String SETTINGS = APP_ID+".Settings";
 
     public final static String M2M = "m2m";
@@ -47,6 +47,7 @@ public class Constants {
     public final static String DEVICE_TYPE = "Android";
 
     // IoT events and commands
+    public final static String AITL_EVENT = "myevt";
     public final static String ACCEL_EVENT = "accel";
     public final static String COLOR_EVENT = "color";
     public final static String TOUCH_EVENT = "touchmove";

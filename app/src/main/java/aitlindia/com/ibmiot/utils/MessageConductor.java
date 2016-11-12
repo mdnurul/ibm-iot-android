@@ -20,11 +20,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
-import com.ibm.iot.android.iotstarter.IoTStarterApplication;
-import com.ibm.iot.android.iotstarter.activities.ProfilesActivity;
-import com.ibm.iot.android.iotstarter.fragments.IoTPagerFragment;
-import com.ibm.iot.android.iotstarter.fragments.LogPagerFragment;
-import com.ibm.iot.android.iotstarter.fragments.LoginPagerFragment;
+//import com.ibm.iot.android.iotstarter.IoTStarterApplication;
+//import com.ibm.iot.android.iotstarter.activities.ProfilesActivity;
+//import com.ibm.iot.android.iotstarter.fragments.IoTPagerFragment;
+//import com.ibm.iot.android.iotstarter.fragments.LogPagerFragment;
+//import com.ibm.iot.android.iotstarter.fragments.LoginPagerFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,11 +39,11 @@ public class MessageConductor {
     private final static String TAG = MessageConductor.class.getName();
     private static MessageConductor instance;
     private final Context context;
-    private final IoTStarterApplication app;
+    //private final IoTStarterApplication app;
 
     private MessageConductor(Context context) {
         this.context = context;
-        app = (IoTStarterApplication) context.getApplicationContext();
+        //app = (IoTStarterApplication) context.getApplicationContext();
     }
 
     public static MessageConductor getInstance(Context context) {
@@ -64,7 +64,7 @@ public class MessageConductor {
         Log.d(TAG, ".steerMessage() entered");
         JSONObject top = new JSONObject(payload);
         JSONObject d = top.getJSONObject("d");
-
+/*
         if (topic.contains(Constants.COLOR_EVENT)) {
             Log.d(TAG, "Color Event");
             int r = d.getInt("r");
@@ -181,5 +181,6 @@ public class MessageConductor {
                 }
             }
         }
+        */
     }
 }

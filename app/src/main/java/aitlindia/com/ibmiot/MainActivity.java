@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import aitlindia.com.ibmiot.utils.*;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class MainActivity extends AppCompatActivity {
+
+    final String  TAG = "MainActivity";
 
     MyIoTActionListener myIOTActionListner;
     IoTCallbacks myIOTCallBack;
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //ibmIOTClient
+        //ibmIOTClient.connectDevice()
 
         String messageData = "{\n" +
                 "    \"desired\": {\n" +
@@ -79,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 "    }";
 
         try {
-        ibmIOTClient.publishEvent(Constants.TEXT_EVENT, "json", messageData, 0, false, myIOTActionListner);
+        ibmIOTClient.publishEvent(Constants.AITL_EVENT, "json", messageData, 0, false, myIOTActionListner);
         } catch (MqttException e) {
+            Log.e(TAG,"MqttException:",e);
             // Publish failed
         }
     }

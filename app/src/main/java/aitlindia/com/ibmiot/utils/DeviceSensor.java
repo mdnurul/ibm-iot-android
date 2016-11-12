@@ -23,8 +23,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
-import com.ibm.iot.android.iotstarter.IoTStarterApplication;
-import com.ibm.iot.android.iotstarter.iot.IoTClient;
+//import com.ibm.iot.android.iotstarter.IoTStarterApplication;
+import aitlindia.com.ibmiot.iot.IoTClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.util.Timer;
@@ -38,7 +38,7 @@ import java.util.TimerTask;
 public class DeviceSensor implements SensorEventListener {
     private final String TAG = DeviceSensor.class.getName();
     private static DeviceSensor instance;
-    private final IoTStarterApplication app;
+    //private final IoTStarterApplication app;
     private final SensorManager sensorManager;
     private final Sensor accelerometer;
     private final Sensor magnetometer;
@@ -52,7 +52,7 @@ public class DeviceSensor implements SensorEventListener {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-        app = (IoTStarterApplication) context.getApplicationContext();
+        //app = (IoTStarterApplication) context.getApplicationContext();
     }
 
     /**
@@ -158,6 +158,8 @@ public class DeviceSensor implements SensorEventListener {
             double lat = 0.0;
             float heading = 0.0f;
             float speed = 0.0f;
+
+            /*
             if (app.getCurrentLocation() != null) {
                 lon = app.getCurrentLocation().getLongitude();
                 lat = app.getCurrentLocation().getLatitude();
@@ -189,7 +191,7 @@ public class DeviceSensor implements SensorEventListener {
                 Log.d(TAG, ".run() received exception on publishEvent()");
             }
 
-            app.setAccelData(G);
+            app.setAccelData(G);*/
 
             //String runningActivity = app.getCurrentRunningActivity();
             //if (runningActivity != null && runningActivity.equals(IoTPagerFragment.class.getName())) {

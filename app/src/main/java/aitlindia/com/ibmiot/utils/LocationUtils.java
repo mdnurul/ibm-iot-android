@@ -24,7 +24,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import com.ibm.iot.android.iotstarter.IoTStarterApplication;
+//import com.ibm.iot.android.iotstarter.IoTStarterApplication;
 
 /**
  * LocationUtils enables and disables location services so that the application can publish latitude
@@ -34,14 +34,14 @@ public class LocationUtils implements LocationListener {
     private final static String TAG = LocationUtils.class.getName();
 
     private static LocationUtils instance;
-    private final IoTStarterApplication app;
+    //private final IoTStarterApplication app;
     private final LocationManager locationManager;
     private final Criteria criteria;
 
     private LocationUtils(Context context) {
         this.locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         this.criteria = getCriteria();
-        this.app = (IoTStarterApplication) context.getApplicationContext();
+        //this.app = (IoTStarterApplication) context.getApplicationContext();
     }
 
     public static LocationUtils getInstance(Context context) {
@@ -61,15 +61,15 @@ public class LocationUtils implements LocationListener {
         String locationProvider = LocationManager.NETWORK_PROVIDER;
         if (!locationManager.isProviderEnabled(locationProvider)) {
             Log.d(TAG, "Location provider not enabled.");
-            app.setCurrentLocation(null);
+           // app.setCurrentLocation(null);
             return;
         }
 
         // register for location updates, if location provider and permission are available
         String bestProvider = locationManager.getBestProvider(criteria, false);
         if (bestProvider != null) {
-            locationManager.requestLocationUpdates(bestProvider, Constants.LOCATION_MIN_TIME, Constants.LOCATION_MIN_DISTANCE, this);
-            app.setCurrentLocation(locationManager.getLastKnownLocation(locationProvider));
+            //locationManager.requestLocationUpdates(bestProvider, Constants.LOCATION_MIN_TIME, Constants.LOCATION_MIN_DISTANCE, this);
+            //app.setCurrentLocation(locationManager.getLastKnownLocation(locationProvider));
         }
     }
 
@@ -81,7 +81,7 @@ public class LocationUtils implements LocationListener {
 
         String locationProvider = LocationManager.NETWORK_PROVIDER;
         if (locationManager.isProviderEnabled(locationProvider)) {
-            locationManager.removeUpdates(this);
+            //locationManager.removeUpdates(this);
         }
     }
 
@@ -90,7 +90,7 @@ public class LocationUtils implements LocationListener {
         Log.d(TAG, ".onLocationChanged() entered");
 
         //publish location details
-        app.setCurrentLocation(location);
+        //app.setCurrentLocation(location);
     }
 
     @Override
